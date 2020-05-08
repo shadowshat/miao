@@ -14,7 +14,7 @@
 					特色 <i class="iconfont icon-lower-triangle"></i>
 				</div>
 		  	</div>	
-			<CList />  
+			<Clist />  
 </div>
 		<tabBar />
 	</div>
