@@ -5,7 +5,7 @@
 			<ul>
 				<li class="pullDown">{{pullMessage}}</li>
 				<li v-for="item in movieList" :key="item.id">
-					<div class="pic_show" @tap="handleToDetail"><img :src="item.img | setWH('128.180')" alt=""></div>
+					<div class="pic_show" @tap="handleToDetail(item.id)"><img :src="item.img | setWH('128.180')" alt=""></div>
 					<div class="info_list">
 						<h2>{{item.nm }}<img v-if="item.version" src="@/assets/maxs.png" alt=""> </h2>
 						<p>观众评<span class="grade">9.2</span></p>
@@ -58,8 +58,8 @@
 			});
 		},
 		methods: {
-			handleToDetail() {
-				console.log("1111");
+			handleToDetail(movieId) {
+				this.$router.push('/movie/detail/1/'+movieId);
 			},
 			handleToScroll(pos){
 				if(pos.y>30){

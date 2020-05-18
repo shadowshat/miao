@@ -19,7 +19,8 @@
 				<router-view />
 			</keep-alive>
 		</div>
-		<tabBar />
+	<tabBar />
+		<router-view name="detail" />
 	</div>
 </template>
 
@@ -28,12 +29,12 @@
 	import tabBar from '@/components/tabBar/tabBar.vue'
 	import {
 		messageBox
-	} from '@/components/JS'
+	} from '@/components/JS';
 	export default {
-		name: 'movie',
+		name: 'Movie',
 		components: {
 			Header,
-			tabBar
+			tabBar,
 		},
 		mounted() {
 			setTimeout(() => {
@@ -49,18 +50,16 @@
 							title: '定位',
 							content: nm,
 							cancel: '取消',
-							ok: '切换',
+							ok: '切换定位',
 							handleOk() {
+								window.localStorage.setItem('nowNm', nm);
 								window.localStorage.setItem('nowId', id);
-								window.localStorage.setItem('nowNm',nm);
 								window.location.reload();
 							}
-
 						});
 					}
 				})
 			}, 1500)
-
 		}
 	}
 </script>

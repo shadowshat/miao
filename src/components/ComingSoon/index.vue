@@ -5,8 +5,8 @@
 			<ul>
 				<li class="pullDown">{{pullMessage}}</li>
 				<li v-for="item in comingList" :key="item.id">
-					<div class="pic_show"><img :src="item.img | setWH('128.180')" alt=""></div>
-					<div class="info_list">
+					<div class="pic_show" @tap="handleToDetail(item.id)"><img :src="item.img | setWH('128.180')" alt=""></div>
+					<div class="info_list" @tap="handleToDetail(item.id)" >
 						<h2>{{item.nm }}<img v-if="item.version" src="@/assets/maxs.png" alt=""> </h2>
 						<p><span class="person">{{item.wish}}</span>人想看</p>
 						<p>主演:{{item.star}}</p>
@@ -43,6 +43,11 @@
 					this.preCityId = cityId;
 				}
 			})
+		},
+		methods:{
+			handleToDetail(movieId) {
+				this.$router.push('/movie/detail/2/'+movieId);
+			},
 		}
 	}
 </script>
